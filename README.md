@@ -19,3 +19,8 @@ Player physics:
 * Ice/grease physics
 * Keyboard movements
 Goal - Make the sandwich, get to the top of the tower. 
+
+
+Background/art:
+* Tall towers/skyscrapers in backround
+* Gurders surround playable tower.
