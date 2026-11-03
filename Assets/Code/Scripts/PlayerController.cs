@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -62,33 +63,39 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
+    // This controls the players rotation and triggers when it hits a corner trigger
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Front-Right Rotate"))
+        int turn_angle = 90;
+        // if the player touches the left corner trigger.
+        if (other.gameObject.CompareTag("Corner Left"))
         {
+            // rotates the player left.
+            transform.Rotate(0, 0, 90);
+            rb.linearVelocity = Vector3.zero;
             if (direction == "Front")
             {
+                Vector3 myvector = new Vector3(-12, 1, 9);
+                transform.position = myvector;
                 direction = "Right";
-                transform.Rotate(0, 0, 90);
             }
-            else
+            else if (direction == "Right")
             {
-                direction = "Front";
-                transform.Rotate(0, 0, -90);
+                Vector3 myvector = new Vector3(-9, 1, -12);
+                transform.position = myvector;
+                direction = "Back";
             }
-
-        }
-        if (other.gameObject.CompareTag("Front-Left Rotate"))
-        {
-            if (direction == "Front")
+            else if (direction == "Back")
             {
+                Vector3 myvector = new Vector3(12, 1, -9);
+                transform.position = myvector;
                 direction = "Left";
-                transform.Rotate(0, 0, -90);
             }
-            else
+            else if (direction == "Left")
             {
+                Vector3 myvector = new Vector3(9, 1, 12);
+                transform.position = myvector;
                 direction = "Front";
-                transform.Rotate(0, 0, 90);
             }
         }
     }
