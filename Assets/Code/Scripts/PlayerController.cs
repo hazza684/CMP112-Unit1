@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
     // This controls the players rotation and triggers when it hits a corner trigger
     private void OnTriggerEnter(Collider other)
     {
-        int turn_angle = 90;
         // if the player touches the left corner trigger.
         if (other.gameObject.CompareTag("Corner Left"))
         {
@@ -75,25 +74,56 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             if (direction == "Front")
             {
-                Vector3 myvector = new Vector3(-12, 1, 9);
+                Vector3 myvector = new Vector3(-12, 1, 8);
                 transform.position = myvector;
                 direction = "Right";
             }
             else if (direction == "Right")
             {
-                Vector3 myvector = new Vector3(-9, 1, -12);
+                Vector3 myvector = new Vector3(-8, 1, -12);
                 transform.position = myvector;
                 direction = "Back";
             }
             else if (direction == "Back")
             {
-                Vector3 myvector = new Vector3(12, 1, -9);
+                Vector3 myvector = new Vector3(12, 1, -8);
                 transform.position = myvector;
                 direction = "Left";
             }
             else if (direction == "Left")
             {
-                Vector3 myvector = new Vector3(9, 1, 12);
+                Vector3 myvector = new Vector3(8, 1, 12);
+                transform.position = myvector;
+                direction = "Front";
+            }
+        }
+        // if the player touches the left corner trigger.
+        if (other.gameObject.CompareTag("Corner Right"))
+        {
+            // rotates the player left.
+            transform.Rotate(0, 0, -90);
+            rb.linearVelocity = Vector3.zero;
+            if (direction == "Front")
+            {
+                Vector3 myvector = new Vector3(12, 1, 8);
+                transform.position = myvector;
+                direction = "Left";
+            }
+            else if (direction == "Left")
+            {
+                Vector3 myvector = new Vector3(8, 1, -12);
+                transform.position = myvector;
+                direction = "Back";
+            }
+            else if (direction == "Back")
+            {
+                Vector3 myvector = new Vector3(-12, 1, -8);
+                transform.position = myvector;
+                direction = "Right";
+            }
+            else if (direction == "Right")
+            {
+                Vector3 myvector = new Vector3(-8, 1, 12);
                 transform.position = myvector;
                 direction = "Front";
             }
