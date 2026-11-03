@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Rotate
-  - Front-Right Rotate
-  - Front-Left Rotate
+  - Corner Left
+  - Corner Right
   layers:
   - Default
   - TransparentFX
