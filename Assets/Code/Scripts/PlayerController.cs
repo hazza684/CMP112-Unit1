@@ -20,12 +20,17 @@ public class PlayerController : MonoBehaviour
 
     private string direction = "Front";
 
+
+
+
+
     // Start is called before the first frame update.
     void Start()
     {
         // Get and store the Rigidbody component attached to the player.
         rb = GetComponent<Rigidbody>();
         Vector3 movement = new Vector3(-movementX, 0.0f, 0);
+
     }
 
     // This function is called when a move input is detected.
@@ -59,6 +64,9 @@ public class PlayerController : MonoBehaviour
         {
             movement = new Vector3(movementX, 0.0f, 0);
         }
+
+
+
         // Apply force to the Rigidbody to move the player.
         rb.AddForce(movement * speed);
     }
@@ -127,6 +135,20 @@ public class PlayerController : MonoBehaviour
                 transform.position = myvector;
                 direction = "Front";
             }
+        if (other.gameObject.CompareTag("ladder"))
+            {
+             Vector3 myvector = new Vector3(7, 5, 10);
+             transform.position = myvector;
+             direction = "Right";
+            }
+            
+
         }
     }
 }
+        
+        
+               
+            
+
+  

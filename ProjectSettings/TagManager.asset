@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Corner Left
   - Corner Right
+  - ladder
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - ladder
   - 
   - 
   - 
