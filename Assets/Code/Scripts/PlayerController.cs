@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging.Abstractions;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     // Controls the direction of the player
 
     private string direction = "Front";
+
+    private int y_floor = 1;
 
 
 
@@ -82,25 +85,25 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             if (direction == "Front")
             {
-                Vector3 myvector = new Vector3(-12, 1, 8);
+                Vector3 myvector = new Vector3(-12, y_floor, 8);
                 transform.position = myvector;
                 direction = "Right";
             }
             else if (direction == "Right")
             {
-                Vector3 myvector = new Vector3(-8, 1, -12);
+                Vector3 myvector = new Vector3(-8, y_floor, -12);
                 transform.position = myvector;
                 direction = "Back";
             }
             else if (direction == "Back")
             {
-                Vector3 myvector = new Vector3(12, 1, -8);
+                Vector3 myvector = new Vector3(12, y_floor, -8);
                 transform.position = myvector;
                 direction = "Left";
             }
             else if (direction == "Left")
             {
-                Vector3 myvector = new Vector3(8, 1, 12);
+                Vector3 myvector = new Vector3(8, y_floor, 12);
                 transform.position = myvector;
                 direction = "Front";
             }
@@ -113,36 +116,45 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             if (direction == "Front")
             {
-                Vector3 myvector = new Vector3(12, 1, 8);
+                Vector3 myvector = new Vector3(12, y_floor, 8);
                 transform.position = myvector;
                 direction = "Left";
             }
             else if (direction == "Left")
             {
-                Vector3 myvector = new Vector3(8, 1, -12);
+                Vector3 myvector = new Vector3(8, y_floor, -12);
                 transform.position = myvector;
                 direction = "Back";
             }
             else if (direction == "Back")
             {
-                Vector3 myvector = new Vector3(-12, 1, -8);
+                Vector3 myvector = new Vector3(-12, y_floor, -8);
                 transform.position = myvector;
                 direction = "Right";
             }
             else if (direction == "Right")
             {
-                Vector3 myvector = new Vector3(-8, 1, 12);
+                Vector3 myvector = new Vector3(-8, y_floor, 12);
                 transform.position = myvector;
                 direction = "Front";
             }
-        if (other.gameObject.CompareTag("ladder"))
-            {
-             Vector3 myvector = new Vector3(7, 5, 10);
-             transform.position = myvector;
-             direction = "Right";
-            }
-            
-
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        // if the player touches a ladder
+        rb.linearVelocity = Vector3.zero;
+        if (other.gameObject.CompareTag("Ladder_up_first"))
+        {
+            Vector3 myvector = new Vector3(8, 7, 12);
+            transform.position = myvector;
+            y_floor = 7;
+        }
+        if (other.gameObject.CompareTag("Ladder_down_first"))
+        {
+            Vector3 myvector = new Vector3(8, 1, 12);
+            transform.position = myvector;
+            y_floor = 1;
         }
     }
 }
