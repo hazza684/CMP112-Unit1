@@ -1,0 +1,22 @@
+Features:
+
+Art Character sprites:
+Jake: 6/9
+Harry: 3/9
+
+Art environmental sprites:
+Jake: 2/10
+Harry: 8/10
+
+Art ingredients sprites:
+Jake: 0
+Harry: 7/7
+
+
+
+
+Code:
+
+
+Unity engine:
+
