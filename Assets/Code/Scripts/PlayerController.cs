@@ -6,10 +6,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+
+
+
 public class PlayerController : MonoBehaviour
 {
     // Rigidbody of the player.
     private Rigidbody rb;
+
+    // scripting
+    public ladder ladder_obj;
+    //getcomponent
 
     // Movement along X axes.
     private float movementX;
@@ -32,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         // Get and store the Rigidbody component attached to the player.
         rb = GetComponent<Rigidbody>();
+        ladder_obj = ladder_obj.GetComponent<ladder>();
         Vector3 movement = new Vector3(-movementX, 0.0f, 0);
 
     }
@@ -148,15 +156,27 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             if (other.gameObject.CompareTag("Ladder_up_first"))
             {
-                Vector3 myvector = new Vector3(8, 7, 12);
+                Vector3 myvector = new Vector3(5, 7, 12);
                 transform.position = myvector;
                 y_floor = 7;
             }
             if (other.gameObject.CompareTag("Ladder_down_first"))
             {
-                Vector3 myvector = new Vector3(8, 1, 12);
+                Vector3 myvector = new Vector3(5, 1, 12);
                 transform.position = myvector;
                 y_floor = 1;
+            }
+            if (other.gameObject.CompareTag("Ladder_up_second"))
+            {
+                Vector3 myvector = new Vector3(-12, 13, -3);
+                transform.position = myvector;
+                y_floor = 13;
+            }
+            if (other.gameObject.CompareTag("Ladder_down_second"))
+            {
+                Vector3 myvector = new Vector3(-12, 7, -3);
+                transform.position = myvector;
+                y_floor = 7;
             }
         }
     }
