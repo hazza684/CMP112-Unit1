@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Corner Left"))
         {
             // rotates the player left.
-            transform.Rotate(0, 0, 90);
+            transform.Rotate(0, -90, 0);
             rb.linearVelocity = Vector3.zero;
             if (direction == "Front")
             {
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Corner Right"))
         {
             // rotates the player left.
-            transform.Rotate(0, 0, -90);
+            transform.Rotate(0, 90, 0);
             rb.linearVelocity = Vector3.zero;
             if (direction == "Front")
             {
@@ -142,19 +142,22 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        // if the player touches a ladder
-        rb.linearVelocity = Vector3.zero;
-        if (other.gameObject.CompareTag("Ladder_up_first"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Vector3 myvector = new Vector3(8, 7, 12);
-            transform.position = myvector;
-            y_floor = 7;
-        }
-        if (other.gameObject.CompareTag("Ladder_down_first"))
-        {
-            Vector3 myvector = new Vector3(8, 1, 12);
-            transform.position = myvector;
-            y_floor = 1;
+            // if the player touches a ladder
+            rb.linearVelocity = Vector3.zero;
+            if (other.gameObject.CompareTag("Ladder_up_first"))
+            {
+                Vector3 myvector = new Vector3(8, 7, 12);
+                transform.position = myvector;
+                y_floor = 7;
+            }
+            if (other.gameObject.CompareTag("Ladder_down_first"))
+            {
+                Vector3 myvector = new Vector3(8, 1, 12);
+                transform.position = myvector;
+                y_floor = 1;
+            }
         }
     }
 }
