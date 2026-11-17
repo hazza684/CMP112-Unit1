@@ -12,6 +12,7 @@ TagManager:
   - thomatoes thomas
   - Ladder_up_second
   - Ladder_down_second
+  - collect
   layers:
   - Default
   - TransparentFX
