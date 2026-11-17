@@ -3,10 +3,15 @@ using UnityEngine;
 using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
-    public float timeRemaining = 500f;
+    
+    public float timeRemaining = 30f;
     public TextMeshProUGUI timerText;
+    
+
+  
     void Update()
     {
+        
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
@@ -26,8 +31,9 @@ public class CountdownTimer : MonoBehaviour
     {
 
         Time.timeScale = 0f;
-        
-   
+      
+
+
     }
 
 }
