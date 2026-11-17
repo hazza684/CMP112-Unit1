@@ -2643,8 +2643,8 @@ Transform:
   m_GameObject: {fileID: 694677383}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071069, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: -0.22625005, y: 0.1574, z: 1.8599997}
-  m_LocalScale: {x: 3, y: 0.26666668, z: 0.37500003}
+  m_LocalPosition: {x: -0.231, y: 0.157, z: 1.8599997}
+  m_LocalScale: {x: 3, y: 0.26666668, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1706004174}
@@ -5446,7 +5446,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2428442, y: -0.06904955}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5456,7 +5456,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16128975, y: 0.694492}
   m_EdgeRadius: 0
 --- !u!114 &2141297996
 MonoBehaviour:
@@ -5623,6 +5623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ladder
       objectReference: {fileID: 0}
+    - target: {fileID: 685221693748822305, guid: aae70cc3bf120ab418ef78cd68aec84a, type: 3}
+      propertyPath: m_TagString
+      value: Ladder_up_first
+      objectReference: {fileID: 0}
     - target: {fileID: 1188829102861665398, guid: aae70cc3bf120ab418ef78cd68aec84a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.22
@@ -5674,6 +5678,10 @@ PrefabInstance:
     - target: {fileID: 3171529494159853229, guid: aae70cc3bf120ab418ef78cd68aec84a, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345709390067111032, guid: aae70cc3bf120ab418ef78cd68aec84a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3345709390067111032, guid: aae70cc3bf120ab418ef78cd68aec84a, type: 3}
       propertyPath: m_LocalRotation.w
