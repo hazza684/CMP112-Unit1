@@ -10,6 +10,8 @@ TagManager:
   - Ladder_down_first
   - 'lettuce lad dialogue '
   - thomatoes thomas
+  - Ladder_up_second
+  - Ladder_down_second
   layers:
   - Default
   - TransparentFX
