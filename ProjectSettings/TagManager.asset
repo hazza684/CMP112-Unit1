@@ -8,6 +8,8 @@ TagManager:
   - Corner Right
   - Ladder_up_first
   - Ladder_down_first
+  - 'lettuce lad dialogue '
+  - thomatoes thomas
   layers:
   - Default
   - TransparentFX
