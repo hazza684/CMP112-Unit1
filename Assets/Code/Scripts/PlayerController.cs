@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using TMPro;
 
 
 
@@ -29,20 +30,28 @@ public class PlayerController : MonoBehaviour
     // defines the starting floor for BOB
     private int y_floor = 1;
 
+    private int count;
 
+    public TextMeshProUGUI countText;
 
+    public GameObject winTextObject;
 
+    
 
     // Start is called before the first frame update.
     void Start()
     {
+        winTextObject.SetActive(false);
         // Get and store the Rigidbody component attached to the player.
         rb = GetComponent<Rigidbody>();
         // get and stores the script component attached to NPCs
         ladder_obj = ladder_obj.GetComponent<ladder>();
         // is just an example/default for movement for the player.
         Vector3 movement = new Vector3(-movement_direction, 0.0f, 0);
-
+        count = 0;
+        SetCountText();
+        
+        
     }
 
     // This function is called when a move input is detected.
@@ -54,6 +63,16 @@ public class PlayerController : MonoBehaviour
         // Store the X component of the movement.
         movement_direction = movementVector.x;
     }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
+        if (count >= 7)
+        {
+            winTextObject.SetActive(true);
+        }
+    }
+
 
     // FixedUpdate is called once per fixed frame-rate frame.
     void FixedUpdate()
@@ -158,6 +177,12 @@ public class PlayerController : MonoBehaviour
                 transform.position = myvector;
                 direction = "Front";
             }
+        }
+        if (other.gameObject.CompareTag("collect"))
+        {
+            other.gameObject.SetActive(false);
+            count = count + 1;
+            SetCountText();
         }
     }
     /// <summary>
